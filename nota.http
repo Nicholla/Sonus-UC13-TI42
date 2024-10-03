@@ -1,0 +1,35 @@
+POST http://localhost:3000/nota HTTP/1.1
+content-type: application/json
+
+{
+    "nota":10,
+    "comentario":"bom",
+    "musica":"chieldren of the sea",
+    "usuario":"Nicholla321"
+}
+
+###
+GET http://localhost:3000/nota HTTP/1.1
+content-type: application/json
+
+###
+
+GET http://localhost:3000/nota/3 HTTP/1.1
+content-type: application/json
+
+###
+
+PUT http://localhost:3000/nota/3 HTTP/1.1
+content-type: application/json
+
+{
+    "nota":5,
+    "comentario":"bom",
+    "musica":"chieldren of the sea",
+    "usuario":"Nicholla321"
+}
+
+###
+
+DELETE http://localhost:3000/nota/3 HTTP/1.1
+content-type: application/json
