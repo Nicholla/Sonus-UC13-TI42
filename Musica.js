@@ -11,19 +11,17 @@ function create_music(ppesquisarmusica, partista, palbum, pfaixa, pdatadelancame
         "artista":partista,
         "album": palbum,
         "faixa":pfaixa,
-        "datadelancamento": pdatadelancamento
-        /*"deleteAt:null*/
+        "datadelancamento": pdatadelancamento,
+        "deletedAt": null
     }
     vmusic.push(omusic)
 }
 
 function create_music (req, res) {
     let {pesquisarmusica, artista, album, faixa, datadelancamento} = req.body
-    
     /* let{variavel1, variavel2} = req.body
                   OU
        let variavel = req.body.variavel*/
-    
     create_music(pesquisarmusica, artista, album, faixa, datadelancamento)
     
     return res.status(201).json({
@@ -33,7 +31,6 @@ function create_music (req, res) {
 }
 
 app.post('/user/:id', create_music)
-
 
 /* Codigo 201 = Created (Criado)
    Codigo 200 = OK (A rota foi alcançada, mas nao existe nada dentro)
@@ -71,7 +68,6 @@ app.get('/user/:id', read_music)
             })
 }*/
 
-
 function update_music(req, res) {
     let{ id } = req.params;
 
@@ -98,31 +94,30 @@ function update_music(req, res) {
 
 app.put('/user/:id', update_music)
 
-
 /* Nunca utilizar dois metodos iguais, sempre diferente
  Hashtag triplo (###) no arquivo http serve para separar
  Sinal de igual triplo (===) indica o mesmo valor e mesmo tipo
  Colocar parenteses e asterisco (/*) inicia um comentario e esse mesmo simbolo ao contrario finaliza o comentario 
  Se voce quiser dar um softdelete voce faz a funcao vmusic.slice(idx)*/
 
-
 function delete_music(req, res){
     let {id} = req.params
     
     const music = vmusic.findIndex(m => m.id == id)
     if (music != -1){
-        
             vmusic[music].deletedAt = new Date()
             return res.status(203).json({
-            message: "Foi de base"
+            message: "Musica deletada",
+            db: vmusic[music]
         })
     }
      return res.status(404).json({
-            message: "Nao foi adicionada"
+            message: "Nao foi adicionada",
+            db: null
     })
 }
 
-app.delete_music('/user/:id', delete_music)
+app.delete('/user/:id', delete_music)
 
 app.listen(3000, () => {
     console.log('http://localhost:3000')
