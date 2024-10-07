@@ -101,9 +101,7 @@ function delete_user(req, res){
     })
 }
 app.delete('/nota/:id', delete_user)
-
 /////////////////////////////////////////////////////////////////////////
-
 app.listen(3000, () => {
     console.log('http://localhost:3000')
 })
