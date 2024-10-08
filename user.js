@@ -1,9 +1,5 @@
 const express = require('express')
-const app = express()
-
-app.use( express.json() )
-
-//-------------------------------------------------------------------------
+const router = express.Router()
 
 var vusers = []
 
@@ -25,7 +21,7 @@ function create_user(req, res){
     })
 }
 
-app.post( '/user', create_user )
+router.post( '/create', create_user )
 
 function read_user(req, res){
     return res.status(200).json({
@@ -34,7 +30,7 @@ function read_user(req, res){
     })
 } 
 
-app.get( "/user", read_user )
+router.get( "/read", read_user )
 
 function show_user(req, res){
     let{id} = req.params
@@ -55,7 +51,7 @@ function show_user(req, res){
     })
 }
 
-app.get( '/user/:id', show_user )
+router.get( '/show/:id', show_user )
 
 function update_user(req, res){
     let{id} = req.params
@@ -82,7 +78,7 @@ function update_user(req, res){
     })
 }
 
-app.put( '/user/:id', update_user )
+router.put( '/update/:id', update_user )
 
 function delete_user(req, res){
     let {id} = req.params
@@ -100,10 +96,6 @@ function delete_user(req, res){
     })
 }
 
-app.delete( '/user/:id', delete_user )
+router.delete( '/delete/:id', delete_user )
 
-//-------------------------------------------------------------------------
-
-app.listen(3000, () => {
-    console.log('http://localhost:3000')
-})
+module.exports = router
