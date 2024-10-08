@@ -9,15 +9,9 @@ function create_user(req, res){
     
     var ouser = {
         "id":vusers.length,
-        "genero":genero,
-        "idade":idade,
-        "nome":nome,
-        "deletedAt":null
-    }
-    vusers.push(ouser)
-
-    return res.status(201).json({
-        message: "Usuario Criado"
+        "genero":genero,app.listen(3000, () => {
+            console.log('http://localhost:3000')
+        })
     })
 }
 

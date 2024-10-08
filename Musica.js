@@ -1,9 +1,8 @@
 const express = require('express')
-const app = express()
-
-app.use(express.json())
-
+const router = express.Router
+/*router.use(express.json())*/
 var vmusic = []
+
 function create_music(ppesquisarmusica, partista, palbum, pfaixa, pdatadelancamento){
     var omusic = {
         "id": vmusic.length+1,
@@ -16,7 +15,6 @@ function create_music(ppesquisarmusica, partista, palbum, pfaixa, pdatadelancame
     }
     vmusic.push(omusic)
 }
-
 function create_music (req, res) {
     let {pesquisarmusica, artista, album, faixa, datadelancamento} = req.body
     /* let{variavel1, variavel2} = req.body
@@ -29,8 +27,7 @@ function create_music (req, res) {
         db: vmusic[vmusic.length -1]/*.filter(m => m.deletedAt == null)*/
     })
 }
-
-app.post('/user/:id', create_music)
+router.post('/create/:id', create_music)
 
 /* Codigo 201 = Created (Criado)
    Codigo 200 = OK (A rota foi alcançada, mas nao existe nada dentro)
@@ -53,20 +50,20 @@ app.post('/user/:id', create_music)
         db: vmusic[music]
     })
 }
+router.get('/read/:id', read_music)
 
-app.get('/user/:id', read_music)
-
-/*function show_user(req,res) {
+function show_user(req,res) {
     let {id} = req.params
     
-    const music =vusers.findIndex(u => u.id == id)
+    const music = vmusic.findIndex(u => u.id == id)
     
-    if (music == -1 || vusers{music}.deletedAt != null){
+    if (music == -1 || vmusic.deletedAt != null){
             return res.status(404).json({
                 message: "Nao encontrada",
                 db: null       
             })
-}*/
+        }
+}
 
 function update_music(req, res) {
     let{ id } = req.params;
@@ -91,8 +88,7 @@ function update_music(req, res) {
         db: vmusic[music]
     })
 }
-
-app.put('/user/:id', update_music)
+router.put('/update/:id', update_music)
 
 /* Nunca utilizar dois metodos iguais, sempre diferente
  Hashtag triplo (###) no arquivo http serve para separar
@@ -116,9 +112,6 @@ function delete_music(req, res){
             db: null
     })
 }
+router.delete('/delete/:id', delete_music)
 
-app.delete('/user/:id', delete_music)
-
-app.listen(3000, () => {
-    console.log('http://localhost:3000')
-})
+module.exports = router
