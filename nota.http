@@ -1,4 +1,4 @@
-POST http://localhost:3000/nota HTTP/1.1
+POST http://localhost:3000/nota/create HTTP/1.1
 content-type: application/json
 
 {
@@ -9,17 +9,17 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:3000/nota HTTP/1.1
+GET http://localhost:3000/nota/all HTTP/1.1
 content-type: application/json
 
 ###
 
-GET http://localhost:3000/nota/3 HTTP/1.1
+GET http://localhost:3000/nota/busc/3 HTTP/1.1
 content-type: application/json
 
 ###
 
-PUT http://localhost:3000/nota/3 HTTP/1.1
+PUT http://localhost:3000/nota/busc_bd/3 HTTP/1.1
 content-type: application/json
 
 {
@@ -31,5 +31,5 @@ content-type: application/json
 
 ###
 
-DELETE http://localhost:3000/nota/3 HTTP/1.1
+DELETE http://localhost:3000/nota/delete/3 HTTP/1.1
 content-type: application/json

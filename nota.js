@@ -1,7 +1,5 @@
 const express = require('express')
-const app = express()
-
-app.use( express.json() )
+const router = express.Router()
 
 var vnota = []
 
@@ -24,7 +22,7 @@ function estatic_create(req, res) {
         message: "Estatisticas criadas",
     })
 }
-app.post('/nota', estatic_create)
+router.post('/create', estatic_create)
 
 
 function all_estatic(req,res){
@@ -33,7 +31,7 @@ function all_estatic(req,res){
         db: vnota.filter(u => u.deleteAt == null)
     }) 
 } 
-app.get( '/nota', all_estatic )
+router.get( '/all', all_estatic )
 
 
 function busc_estatic(req,res){
@@ -55,7 +53,7 @@ function busc_estatic(req,res){
         db: vnota[idx]
     }) 
 }
-app.get( '/nota/:id', busc_estatic )
+router.get( '/busc/:id', busc_estatic )
 
 
 function busc_estatic_body(req,res){
@@ -83,7 +81,7 @@ function busc_estatic_body(req,res){
         db: vnota[idx]
     }) 
 }
-app.put( '/nota/:id', busc_estatic_body )
+router.put( '/busc_bd/:id', busc_estatic_body )
 
 function delete_user(req, res){
     let {id}= req.params
@@ -100,8 +98,7 @@ function delete_user(req, res){
         message: "Não encontrado",
     })
 }
-app.delete('/nota/:id', delete_user)
+router.delete('/delete/:id', delete_user)
+
+module.exports = router
 /////////////////////////////////////////////////////////////////////////
-app.listen(3000, () => {
-    console.log('http://localhost:3000')
-})
