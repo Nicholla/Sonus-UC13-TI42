@@ -1,6 +1,3 @@
-const express = require('express')
-const router = express.Router
-/*router.use(express.json())*/
 var vmusic = []
 
 function create_music(ppesquisarmusica, partista, palbum, pfaixa, pdatadelancamento){
@@ -15,7 +12,7 @@ function create_music(ppesquisarmusica, partista, palbum, pfaixa, pdatadelancame
     }
     vmusic.push(omusic)
 }
-function create_music (req, res) {
+function create_music1 (req, res) {
     let {pesquisarmusica, artista, album, faixa, datadelancamento} = req.body
     /* let{variavel1, variavel2} = req.body
                   OU
@@ -27,13 +24,8 @@ function create_music (req, res) {
         db: vmusic[vmusic.length -1]/*.filter(m => m.deletedAt == null)*/
     })
 }
-router.post('/create/:id', create_music)
 
-/* Codigo 201 = Created (Criado)
-   Codigo 200 = OK (A rota foi alcançada, mas nao existe nada dentro)
-   Codigo 203 = Sucesso*/
-
-   function read_music(req, res) {
+function find_music(req, res) {
     /* let variavel = req.params.variavel*/
     let{ id } = req.params;
 
@@ -50,9 +42,8 @@ router.post('/create/:id', create_music)
         db: vmusic[music]
     })
 }
-router.get('/read/:id', read_music)
 
-function show_user(req,res) {
+function show_music(req,res) {
     let {id} = req.params
     
     const music = vmusic.findIndex(u => u.id == id)
@@ -88,13 +79,6 @@ function update_music(req, res) {
         db: vmusic[music]
     })
 }
-router.put('/update/:id', update_music)
-
-/* Nunca utilizar dois metodos iguais, sempre diferente
- Hashtag triplo (###) no arquivo http serve para separar
- Sinal de igual triplo (===) indica o mesmo valor e mesmo tipo
- Colocar parenteses e asterisco (/*) inicia um comentario e esse mesmo simbolo ao contrario finaliza o comentario 
- Se voce quiser dar um softdelete voce faz a funcao vmusic.slice(idx)*/
 
 function delete_music(req, res){
     let {id} = req.params
@@ -112,6 +96,12 @@ function delete_music(req, res){
             db: null
     })
 }
-router.delete('/delete/:id', delete_music)
 
-module.exports = router
+module.exports = {
+    create_music,
+    create_music1,
+    find_music,
+    show_music,
+    update_music,
+    delete_music
+}

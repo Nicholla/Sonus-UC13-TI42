@@ -13,7 +13,7 @@ function create_user(req, res){
             console.log('http://localhost:3000')
         })
     })
-}
+ }
 
 router.post( '/create', create_user )
 
