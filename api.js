@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 app.use( express.json() )
 
-const cr_nota = require('./nota')
+const cr_nota = require('./routes/nota')
 app.use('/nota', cr_nota)
 
 const cr_user = require('./user')
