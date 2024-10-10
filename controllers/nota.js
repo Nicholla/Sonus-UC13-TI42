@@ -1,12 +1,6 @@
-const express = require('express')
-const router = express.Router()
-
 var vnota = []
 
-/////////////////////////////////////////////////////////////////////////
-
-
-function estatic_create(req, res) {
+function estatic_create(req, res){
     let{nota, comentario, musica, usuario} = req.body
   
      var ouser = {
@@ -22,8 +16,6 @@ function estatic_create(req, res) {
         message: "Estatisticas criadas",
     })
 }
-router.post('/create', estatic_create)
-
 
 function all_estatic(req,res){
     return res.status(200).json({
@@ -31,8 +23,6 @@ function all_estatic(req,res){
         db: vnota.filter(u => u.deleteAt == null)
     }) 
 } 
-router.get( '/all', all_estatic )
-
 
 function busc_estatic(req,res){
     
@@ -53,8 +43,6 @@ function busc_estatic(req,res){
         db: vnota[idx]
     }) 
 }
-router.get( '/busc/:id', busc_estatic )
-
 
 function busc_estatic_body(req,res){
     
@@ -81,7 +69,6 @@ function busc_estatic_body(req,res){
         db: vnota[idx]
     }) 
 }
-router.put( '/busc_bd/:id', busc_estatic_body )
 
 function delete_user(req, res){
     let {id}= req.params
@@ -98,7 +85,11 @@ function delete_user(req, res){
         message: "Não encontrado",
     })
 }
-router.delete('/delete/:id', delete_user)
 
-module.exports = router
-/////////////////////////////////////////////////////////////////////////
+module.exports = {
+    estatic_create,
+    all_estatic,
+    busc_estatic,
+    busc_estatic_body,
+    delete_user 
+}
