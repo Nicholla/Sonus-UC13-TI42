@@ -1,0 +1,31 @@
+POST http://localhost:3000/user HTTP/1.1
+    content-type: application/json
+
+    {
+        "pesquisarmusica":"Iron Man",
+        "artista":"Black Sabbath",
+        "album":"Paranoid",
+        "faixa":"Iron Man",
+        "datadelancamento":"18 de setembro de 1970"
+    }
+
+###
+GET http://localhost:3000/user HTTP/1.1
+    content-type: application/json
+
+###
+GET http://localhost:3000/user/1 HTTP/1.1
+    content-type: application/json
+
+###
+PUT http://localhost:3000/user/1 HTTP/1.1
+    content-type: application/json
+
+    {
+        "pesquisarmusica":"Paranoid",
+        "faixa":"Paranoid"
+    }
+
+###
+DELETE http://localhost:3000/user/1 HTTP/1.1
+    content-type: application/json
