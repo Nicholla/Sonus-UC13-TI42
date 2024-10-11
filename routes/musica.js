@@ -1,19 +1,17 @@
 const express = require('express')
-const router = express.Router
+const router = express.Router()
 /*router.use(express.json())*/
-const cmusic = require ('../controllers/Musica')
-''
-router.post('/create/:id', cmusic.create_music)
+const cmusic = require ('../controllers/musica')
 
 /* Codigo 201 = Created (Criado)
    Codigo 200 = OK (A rota foi alcançada, mas nao existe nada dentro)
    Codigo 203 = Sucesso*/
 
-router.post('/create/:id', cmusic.create_music1)
+router.post('/add/', cmusic.create_music)
 
-router.get('/read/:id', cmusic.find_music)
+router.get('/show/', cmusic.show_music)
 
-router.get('/show/:id', cmusic.show_music)
+router.get('/read/:id', cmusic.read_music)
 
 router.put('/update/:id', cmusic.update_music)
 

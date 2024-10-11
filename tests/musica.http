@@ -1,4 +1,4 @@
-POST http://localhost:3000/user/create HTTP/1.1
+POST http://localhost:3000/music/create HTTP/1.1
     content-type: application/json
 
     {
@@ -10,15 +10,15 @@ POST http://localhost:3000/user/create HTTP/1.1
     }
 
 ###
-GET http://localhost:3000/user/read HTTP/1.1
+GET http://localhost:3000/music/show HTTP/1.1
     content-type: application/json
 
 ###
-GET http://localhost:3000/user/show/1 HTTP/1.1
+GET http://localhost:3000/music/read/1 HTTP/1.1
     content-type: application/json
 
 ###
-PUT http://localhost:3000/user/update/1 HTTP/1.1
+PUT http://localhost:3000/music/update/1 HTTP/1.1
     content-type: application/json
 
     {
@@ -27,5 +27,5 @@ PUT http://localhost:3000/user/update/1 HTTP/1.1
     }
 
 ###
-DELETE http://localhost:3000/user/delete1 HTTP/1.1
+DELETE http://localhost:3000/music/delete/1 HTTP/1.1
     content-type: application/json
