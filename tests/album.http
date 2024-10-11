@@ -1,0 +1,29 @@
+POST http://localhost:3000/album/create HTTP/1.1
+content-type: application/json
+
+{
+    "genero": "Masculino",
+    "idade": "20",
+    "nome": "Jhonatan"
+}
+
+###
+
+GET http://localhost:3000/album/read HTTP/1.1
+content-type: application/json
+
+###
+
+PUT http://localhost:3000/album/show/1 HTTP/1.1
+content-type: application/json
+
+{
+    "genero": "Masculino",
+    "idade": "20",
+    "nome": "Marcius"
+}
+
+###
+
+DELETE http://localhost:3000/album/delete/1 HTTP/1.1
+content-type: application/json

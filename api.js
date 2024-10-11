@@ -11,6 +11,8 @@ app.use( express.json() )
 const cr_music = require('./routes/musica')
 app.use('/Musica', cr_music)
 
+const cr_album = require("./routes/album")
+app.use("/album", cr_album)
 
 app.listen(3000, () => {
     console.log('http://localhost:3000')
