@@ -15,5 +15,16 @@
   },
   "devDependencies": {
     "prisma": "^6.7.0"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicholla/Sonus-UC13-TI42.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nicholla/Sonus-UC13-TI42/issues"
+  },
+  "homepage": "https://github.com/Nicholla/Sonus-UC13-TI42#readme"
 }

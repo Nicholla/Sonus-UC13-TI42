@@ -19,6 +19,7 @@ app.use('/nota', cr_nota)*/
 app.use('/user', cr_user)*/
 
 
+
 app.get("/albuns", async (req, res) => {
     const albuns = await prisma.album.findMany();
     res.json(albuns);
@@ -33,6 +34,21 @@ app.get("/albuns/:id", async (req, res) => {
         res.json(album);
     }
 });
+
+// app.get("/albuns/recentes", async (req, res) => {
+//     try {
+//         const albuns = await prisma.album.findMany({
+//             orderBy: {
+//                 id: 'desc' // ou 'createdAt', se disponível
+//             },
+//             take: 5
+//         });
+//         res.json(albuns);
+//     } catch (error) {
+//         res.status(500).send("Erro ao buscar álbuns recentes.");
+//     }
+// });
+
 
 
 
@@ -75,8 +91,6 @@ app.get("/musica", async (req, res) => {
     res.json(musica);
 });
 
-
-
 app.get("/musica/:id", async (req, res) => {
     const id = parseInt(req.params.id);
     const musica = await prisma.musica.findUnique( {where:{id}} );
@@ -86,6 +100,21 @@ app.get("/musica/:id", async (req, res) => {
         res.json(musica);
     }
 });
+
+// app.get("/musica/recentes", async (req, res) => {
+//     try {
+//         const musicas = await prisma.musica.findMany({
+//             orderBy: {
+//                 id: 'desc' // ou 'createdAt', se houver campo de data
+//             },
+//             take: 15
+//         });
+//         res.json(musicas);
+//     } catch (error) {
+//         res.status(500).send("Erro ao buscar músicas recentes.");
+//     }
+// });
+
 
 
 
@@ -105,7 +134,21 @@ app.get("/usuarios/:id", async (req, res) => {
 });
 
 
-// app.post("/produtos", async (req, res) => {
+
+app.post("/usuarios", async (req, res) => {
+    if ((req.body.nome === undefined) || (req.body.preco === undefined)){
+        res.status(400).send("Campos obrigatórios faltantes");
+    }else{
+        const novoUsuario = await prisma.usuario.create({data: {
+            nome:req.body.nome,
+            preco: req.body.preco
+        }});
+        res.status(201).location(`/usuarios/${novoUsuario.id}`).send();
+    }
+})
+
+
+// app.post("/usuarios", async (req, res) => {
 //     if ((req.body.nome === undefined) || (req.body.preco === undefined)){
 //         res.status(400).send("Campos obrigatórios faltantes");
 //     }else{
@@ -136,6 +179,8 @@ app.put("/produtos/:id", async (req, res) => {
         }
     }
 })
+
+
 
 app.delete("/produtos/:id", async (req, res)=> {
     const id = parseInt(req.params.id);
