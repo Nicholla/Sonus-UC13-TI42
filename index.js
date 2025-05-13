@@ -105,17 +105,15 @@ app.get("/musica/:id", async (req, res) => {
 //     try {
 //         const musicas = await prisma.musica.findMany({
 //             orderBy: {
-//                 id: 'desc' // ou 'createdAt', se houver campo de data
+//                 id: 'desc' // ou 'createdAt', se tiver um campo de data
 //             },
 //             take: 15
 //         });
 //         res.json(musicas);
 //     } catch (error) {
-//         res.status(500).send("Erro ao buscar músicas recentes.");
+//         res.status(500).send("Erro ao buscar músicas recentes adicionadas.");
 //     }
 // });
-
-
 
 
 app.get("/usuarios", async (req, res) => {

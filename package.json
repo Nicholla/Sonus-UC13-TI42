@@ -11,7 +11,7 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.7.0",
-    "express": "^4.21.0"
+    "express": "^4.21.2"
   },
   "devDependencies": {
     "prisma": "^6.7.0"
