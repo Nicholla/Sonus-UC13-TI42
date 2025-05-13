@@ -11,7 +11,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("http://localhost:8080/phpmyadmin/sonus")
+  url      = env("DATABASE_URL")
 }
 
 model Album {
