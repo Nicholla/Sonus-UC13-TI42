@@ -1,11 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { PrismaClient } from './generated/prisma/index.js';
+import cors from 'cors';
 
 const app = express();
 const port = 4000;
 const prisma = new PrismaClient();
 app.use(bodyParser.json());
+app.use (cors()); // Permissão de requisição de qualquer lugar
 
 
 app.get('/', (req, res) => {
@@ -17,8 +19,6 @@ app.use('/nota', cr_nota)*/
 
 /*const cr_user = require('./user')
 app.use('/user', cr_user)*/
-
-
 
 app.get("/album", async (req, res) => {
     const album = await prisma.album.findMany();
