@@ -179,7 +179,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\matheus.avborges\\Documents\\GitHub\\Sonus-UC13-TI42\\generated\\prisma",
+      "value": "C:\\Users\\nicolas.rclourenco\\Downloads\\sonus\\Sonus-UC13-TI42\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -193,7 +193,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\matheus.avborges\\Documents\\GitHub\\Sonus-UC13-TI42\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\nicolas.rclourenco\\Downloads\\sonus\\Sonus-UC13-TI42\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
