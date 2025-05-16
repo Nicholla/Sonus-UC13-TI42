@@ -1280,6 +1280,7 @@ export namespace Prisma {
     id: number | null
     nome: string | null
     url_imagem: string | null
+    descricao: string | null
     id_artista: number | null
   }
 
@@ -1287,6 +1288,7 @@ export namespace Prisma {
     id: number | null
     nome: string | null
     url_imagem: string | null
+    descricao: string | null
     id_artista: number | null
   }
 
@@ -1294,6 +1296,7 @@ export namespace Prisma {
     id: number
     nome: number
     url_imagem: number
+    descricao: number
     id_artista: number
     _all: number
   }
@@ -1313,6 +1316,7 @@ export namespace Prisma {
     id?: true
     nome?: true
     url_imagem?: true
+    descricao?: true
     id_artista?: true
   }
 
@@ -1320,6 +1324,7 @@ export namespace Prisma {
     id?: true
     nome?: true
     url_imagem?: true
+    descricao?: true
     id_artista?: true
   }
 
@@ -1327,6 +1332,7 @@ export namespace Prisma {
     id?: true
     nome?: true
     url_imagem?: true
+    descricao?: true
     id_artista?: true
     _all?: true
   }
@@ -1421,6 +1427,7 @@ export namespace Prisma {
     id: number
     nome: string
     url_imagem: string
+    descricao: string
     id_artista: number
     _count: AlbumCountAggregateOutputType | null
     _avg: AlbumAvgAggregateOutputType | null
@@ -1447,6 +1454,7 @@ export namespace Prisma {
     id?: boolean
     nome?: boolean
     url_imagem?: boolean
+    descricao?: boolean
     id_artista?: boolean
     musicas?: boolean | Album$musicasArgs<ExtArgs>
     artista?: boolean | ArtistaDefaultArgs<ExtArgs>
@@ -1459,10 +1467,11 @@ export namespace Prisma {
     id?: boolean
     nome?: boolean
     url_imagem?: boolean
+    descricao?: boolean
     id_artista?: boolean
   }
 
-  export type AlbumOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "url_imagem" | "id_artista", ExtArgs["result"]["album"]>
+  export type AlbumOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "url_imagem" | "descricao" | "id_artista", ExtArgs["result"]["album"]>
   export type AlbumInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     musicas?: boolean | Album$musicasArgs<ExtArgs>
     artista?: boolean | ArtistaDefaultArgs<ExtArgs>
@@ -1479,6 +1488,7 @@ export namespace Prisma {
       id: number
       nome: string
       url_imagem: string
+      descricao: string
       id_artista: number
     }, ExtArgs["result"]["album"]>
     composites: {}
@@ -1854,6 +1864,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Album", 'Int'>
     readonly nome: FieldRef<"Album", 'String'>
     readonly url_imagem: FieldRef<"Album", 'String'>
+    readonly descricao: FieldRef<"Album", 'String'>
     readonly id_artista: FieldRef<"Album", 'Int'>
   }
     
@@ -6006,6 +6017,7 @@ export namespace Prisma {
     id: 'id',
     nome: 'nome',
     url_imagem: 'url_imagem',
+    descricao: 'descricao',
     id_artista: 'id_artista'
   };
 
@@ -6062,7 +6074,8 @@ export namespace Prisma {
 
   export const AlbumOrderByRelevanceFieldEnum: {
     nome: 'nome',
-    url_imagem: 'url_imagem'
+    url_imagem: 'url_imagem',
+    descricao: 'descricao'
   };
 
   export type AlbumOrderByRelevanceFieldEnum = (typeof AlbumOrderByRelevanceFieldEnum)[keyof typeof AlbumOrderByRelevanceFieldEnum]
@@ -6143,6 +6156,7 @@ export namespace Prisma {
     id?: IntFilter<"Album"> | number
     nome?: StringFilter<"Album"> | string
     url_imagem?: StringFilter<"Album"> | string
+    descricao?: StringFilter<"Album"> | string
     id_artista?: IntFilter<"Album"> | number
     musicas?: MusicaListRelationFilter
     artista?: XOR<ArtistaScalarRelationFilter, ArtistaWhereInput>
@@ -6152,6 +6166,7 @@ export namespace Prisma {
     id?: SortOrder
     nome?: SortOrder
     url_imagem?: SortOrder
+    descricao?: SortOrder
     id_artista?: SortOrder
     musicas?: MusicaOrderByRelationAggregateInput
     artista?: ArtistaOrderByWithRelationInput
@@ -6165,6 +6180,7 @@ export namespace Prisma {
     NOT?: AlbumWhereInput | AlbumWhereInput[]
     nome?: StringFilter<"Album"> | string
     url_imagem?: StringFilter<"Album"> | string
+    descricao?: StringFilter<"Album"> | string
     id_artista?: IntFilter<"Album"> | number
     musicas?: MusicaListRelationFilter
     artista?: XOR<ArtistaScalarRelationFilter, ArtistaWhereInput>
@@ -6174,6 +6190,7 @@ export namespace Prisma {
     id?: SortOrder
     nome?: SortOrder
     url_imagem?: SortOrder
+    descricao?: SortOrder
     id_artista?: SortOrder
     _count?: AlbumCountOrderByAggregateInput
     _avg?: AlbumAvgOrderByAggregateInput
@@ -6189,6 +6206,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Album"> | number
     nome?: StringWithAggregatesFilter<"Album"> | string
     url_imagem?: StringWithAggregatesFilter<"Album"> | string
+    descricao?: StringWithAggregatesFilter<"Album"> | string
     id_artista?: IntWithAggregatesFilter<"Album"> | number
   }
 
@@ -6401,6 +6419,7 @@ export namespace Prisma {
   export type AlbumCreateInput = {
     nome: string
     url_imagem: string
+    descricao: string
     musicas?: MusicaCreateNestedManyWithoutAlbumInput
     artista: ArtistaCreateNestedOneWithoutAlbunsInput
   }
@@ -6409,6 +6428,7 @@ export namespace Prisma {
     id?: number
     nome: string
     url_imagem: string
+    descricao: string
     id_artista: number
     musicas?: MusicaUncheckedCreateNestedManyWithoutAlbumInput
   }
@@ -6416,6 +6436,7 @@ export namespace Prisma {
   export type AlbumUpdateInput = {
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
     musicas?: MusicaUpdateManyWithoutAlbumNestedInput
     artista?: ArtistaUpdateOneRequiredWithoutAlbunsNestedInput
   }
@@ -6424,6 +6445,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
     id_artista?: IntFieldUpdateOperationsInput | number
     musicas?: MusicaUncheckedUpdateManyWithoutAlbumNestedInput
   }
@@ -6432,18 +6454,21 @@ export namespace Prisma {
     id?: number
     nome: string
     url_imagem: string
+    descricao: string
     id_artista: number
   }
 
   export type AlbumUpdateManyMutationInput = {
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
   }
 
   export type AlbumUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
     id_artista?: IntFieldUpdateOperationsInput | number
   }
 
@@ -6685,6 +6710,7 @@ export namespace Prisma {
     id?: SortOrder
     nome?: SortOrder
     url_imagem?: SortOrder
+    descricao?: SortOrder
     id_artista?: SortOrder
   }
 
@@ -6697,6 +6723,7 @@ export namespace Prisma {
     id?: SortOrder
     nome?: SortOrder
     url_imagem?: SortOrder
+    descricao?: SortOrder
     id_artista?: SortOrder
   }
 
@@ -6704,6 +6731,7 @@ export namespace Prisma {
     id?: SortOrder
     nome?: SortOrder
     url_imagem?: SortOrder
+    descricao?: SortOrder
     id_artista?: SortOrder
   }
 
@@ -7293,6 +7321,7 @@ export namespace Prisma {
   export type AlbumCreateWithoutArtistaInput = {
     nome: string
     url_imagem: string
+    descricao: string
     musicas?: MusicaCreateNestedManyWithoutAlbumInput
   }
 
@@ -7300,6 +7329,7 @@ export namespace Prisma {
     id?: number
     nome: string
     url_imagem: string
+    descricao: string
     musicas?: MusicaUncheckedCreateNestedManyWithoutAlbumInput
   }
 
@@ -7336,12 +7366,14 @@ export namespace Prisma {
     id?: IntFilter<"Album"> | number
     nome?: StringFilter<"Album"> | string
     url_imagem?: StringFilter<"Album"> | string
+    descricao?: StringFilter<"Album"> | string
     id_artista?: IntFilter<"Album"> | number
   }
 
   export type AlbumCreateWithoutMusicasInput = {
     nome: string
     url_imagem: string
+    descricao: string
     artista: ArtistaCreateNestedOneWithoutAlbunsInput
   }
 
@@ -7349,6 +7381,7 @@ export namespace Prisma {
     id?: number
     nome: string
     url_imagem: string
+    descricao: string
     id_artista: number
   }
 
@@ -7371,6 +7404,7 @@ export namespace Prisma {
   export type AlbumUpdateWithoutMusicasInput = {
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
     artista?: ArtistaUpdateOneRequiredWithoutAlbunsNestedInput
   }
 
@@ -7378,6 +7412,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
     id_artista?: IntFieldUpdateOperationsInput | number
   }
 
@@ -7408,11 +7443,13 @@ export namespace Prisma {
     id?: number
     nome: string
     url_imagem: string
+    descricao: string
   }
 
   export type AlbumUpdateWithoutArtistaInput = {
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
     musicas?: MusicaUpdateManyWithoutAlbumNestedInput
   }
 
@@ -7420,6 +7457,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
     musicas?: MusicaUncheckedUpdateManyWithoutAlbumNestedInput
   }
 
@@ -7427,6 +7465,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
   }
 
 

@@ -18,6 +18,7 @@ model Album {
   id         Int      @id @default(autoincrement())
   nome       String
   url_imagem String
+  descricao  String
   musicas    Musica[]
   artista    Artista  @relation(fields: [id_artista], references: [id])
 

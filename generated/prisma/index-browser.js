@@ -124,6 +124,7 @@ exports.Prisma.AlbumScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
   url_imagem: 'url_imagem',
+  descricao: 'descricao',
   id_artista: 'id_artista'
 };
 
@@ -162,7 +163,8 @@ exports.Prisma.SortOrder = {
 
 exports.Prisma.AlbumOrderByRelevanceFieldEnum = {
   nome: 'nome',
-  url_imagem: 'url_imagem'
+  url_imagem: 'url_imagem',
+  descricao: 'descricao'
 };
 
 exports.Prisma.ArtistaOrderByRelevanceFieldEnum = {
