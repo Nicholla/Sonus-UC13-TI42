@@ -48,7 +48,6 @@ model Musica {
   nome  String
   tempo DateTime
   album Album    @relation(fields: [id_album], references: [id])
-  usuario Usuario[] @relation("Preferencias")
 
   id_album Int
 
@@ -62,7 +61,12 @@ model Usuario {
   senha      String
   url_imagem String
   criado_em  DateTime @default(now())
-  musica Musica[] @relation("Preferencias")
 
   @@map("usuarios")
 }
+
+/**
+ * rotas get para serem feitas:
+ * 15 ultimas musicas cadastradas
+ * 5 ultimos albuns cadastrados
+ */
