@@ -56,12 +56,11 @@ model Musica {
 }
 
 model Usuario {
-  id         Int      @id @default(autoincrement())
-  email      String
-  nickname   String
-  senha      String
-  url_imagem String
-  criado_em  DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  email     String
+  nickname  String
+  senha     String
+  criado_em DateTime @default(now())
 
   @@map("usuarios")
 }
