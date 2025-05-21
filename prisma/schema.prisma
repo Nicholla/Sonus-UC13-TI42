@@ -32,6 +32,7 @@ model Artista {
   nome       String
   url_imagem String
   albuns     Album[]
+  musicas    Musica[]
 
   @@map("artistas")
 }
@@ -46,11 +47,9 @@ model Avaliacao {
 
 model Musica {
   id    Int      @id @default(autoincrement())
-  nome  String
-  tempo DateTime
+  nl
   album Album    @relation(fields: [id_album], references: [id])
-
-  id_album Int
+  artista Artista    @relation(fields: [id_artista], references: [id])
 
   @@map("musica")
 }

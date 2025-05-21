@@ -28,10 +28,11 @@ model Album {
 }
 
 model Artista {
-  id         Int     @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   nome       String
   url_imagem String
   albuns     Album[]
+  musicas    Musica[]
 
   @@map("artistas")
 }
@@ -45,12 +46,15 @@ model Avaliacao {
 }
 
 model Musica {
-  id    Int      @id @default(autoincrement())
-  nome  String
-  tempo DateTime
-  album Album    @relation(fields: [id_album], references: [id])
+  id         Int      @id @default(autoincrement())
+  nome       String
+  img        String
+  tempo      DateTime
+  id_album   Int
+  id_artista Int
 
-  id_album Int
+  album   Album   @relation(fields: [id_album], references: [id])
+  artista Artista @relation(fields: [id_artista], references: [id])
 
   @@map("musica")
 }

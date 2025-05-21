@@ -20,11 +20,11 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.8.1
+ * Prisma Client JS version: 6.8.2
  * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
  */
 Prisma.prismaVersion = {
-  client: "6.8.1",
+  client: "6.8.2",
   engine: "2060c79ba17c6bb9f5823312b6f6b7f4a845738e"
 }
 
@@ -143,8 +143,10 @@ exports.Prisma.AvaliacaoScalarFieldEnum = {
 exports.Prisma.MusicaScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
+  img: 'img',
   tempo: 'tempo',
-  id_album: 'id_album'
+  id_album: 'id_album',
+  id_artista: 'id_artista'
 };
 
 exports.Prisma.UsuarioScalarFieldEnum = {
@@ -177,7 +179,8 @@ exports.Prisma.AvaliacaoOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.MusicaOrderByRelevanceFieldEnum = {
-  nome: 'nome'
+  nome: 'nome',
+  img: 'img'
 };
 
 exports.Prisma.UsuarioOrderByRelevanceFieldEnum = {
