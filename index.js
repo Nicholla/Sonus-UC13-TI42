@@ -53,7 +53,7 @@ app.get("/artista/:id", async (req, res) => {
 
 
 app.get("/musica", async (req, res) => {
-    const musica = await prisma.musica.findMany({include:{artista: true}});
+    const musica = await prisma.musica.findMany();
     res.json(musica);
 });
 
