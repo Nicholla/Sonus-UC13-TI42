@@ -59,9 +59,7 @@ model Usuario {
   email      String
   nickname   String
   senha      String
-  url_imagem String
   criado_em  DateTime @default(now())
-
   @@map("usuarios")
 }
 

@@ -5164,7 +5164,6 @@ export namespace Prisma {
     email: string | null
     nickname: string | null
     senha: string | null
-    url_imagem: string | null
     criado_em: Date | null
   }
 
@@ -5173,7 +5172,6 @@ export namespace Prisma {
     email: string | null
     nickname: string | null
     senha: string | null
-    url_imagem: string | null
     criado_em: Date | null
   }
 
@@ -5182,7 +5180,6 @@ export namespace Prisma {
     email: number
     nickname: number
     senha: number
-    url_imagem: number
     criado_em: number
     _all: number
   }
@@ -5201,7 +5198,6 @@ export namespace Prisma {
     email?: true
     nickname?: true
     senha?: true
-    url_imagem?: true
     criado_em?: true
   }
 
@@ -5210,7 +5206,6 @@ export namespace Prisma {
     email?: true
     nickname?: true
     senha?: true
-    url_imagem?: true
     criado_em?: true
   }
 
@@ -5219,7 +5214,6 @@ export namespace Prisma {
     email?: true
     nickname?: true
     senha?: true
-    url_imagem?: true
     criado_em?: true
     _all?: true
   }
@@ -5315,7 +5309,6 @@ export namespace Prisma {
     email: string
     nickname: string
     senha: string
-    url_imagem: string
     criado_em: Date
     _count: UsuarioCountAggregateOutputType | null
     _avg: UsuarioAvgAggregateOutputType | null
@@ -5343,7 +5336,6 @@ export namespace Prisma {
     email?: boolean
     nickname?: boolean
     senha?: boolean
-    url_imagem?: boolean
     criado_em?: boolean
   }, ExtArgs["result"]["usuario"]>
 
@@ -5354,11 +5346,10 @@ export namespace Prisma {
     email?: boolean
     nickname?: boolean
     senha?: boolean
-    url_imagem?: boolean
     criado_em?: boolean
   }
 
-  export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "nickname" | "senha" | "url_imagem" | "criado_em", ExtArgs["result"]["usuario"]>
+  export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "nickname" | "senha" | "criado_em", ExtArgs["result"]["usuario"]>
 
   export type $UsuarioPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Usuario"
@@ -5368,7 +5359,6 @@ export namespace Prisma {
       email: string
       nickname: string
       senha: string
-      url_imagem: string
       criado_em: Date
     }, ExtArgs["result"]["usuario"]>
     composites: {}
@@ -5743,7 +5733,6 @@ export namespace Prisma {
     readonly email: FieldRef<"Usuario", 'String'>
     readonly nickname: FieldRef<"Usuario", 'String'>
     readonly senha: FieldRef<"Usuario", 'String'>
-    readonly url_imagem: FieldRef<"Usuario", 'String'>
     readonly criado_em: FieldRef<"Usuario", 'DateTime'>
   }
     
@@ -6126,7 +6115,6 @@ export namespace Prisma {
     email: 'email',
     nickname: 'nickname',
     senha: 'senha',
-    url_imagem: 'url_imagem',
     criado_em: 'criado_em'
   };
 
@@ -6176,8 +6164,7 @@ export namespace Prisma {
   export const UsuarioOrderByRelevanceFieldEnum: {
     email: 'email',
     nickname: 'nickname',
-    senha: 'senha',
-    url_imagem: 'url_imagem'
+    senha: 'senha'
   };
 
   export type UsuarioOrderByRelevanceFieldEnum = (typeof UsuarioOrderByRelevanceFieldEnum)[keyof typeof UsuarioOrderByRelevanceFieldEnum]
@@ -6450,7 +6437,6 @@ export namespace Prisma {
     email?: StringFilter<"Usuario"> | string
     nickname?: StringFilter<"Usuario"> | string
     senha?: StringFilter<"Usuario"> | string
-    url_imagem?: StringFilter<"Usuario"> | string
     criado_em?: DateTimeFilter<"Usuario"> | Date | string
   }
 
@@ -6459,7 +6445,6 @@ export namespace Prisma {
     email?: SortOrder
     nickname?: SortOrder
     senha?: SortOrder
-    url_imagem?: SortOrder
     criado_em?: SortOrder
     _relevance?: UsuarioOrderByRelevanceInput
   }
@@ -6472,7 +6457,6 @@ export namespace Prisma {
     email?: StringFilter<"Usuario"> | string
     nickname?: StringFilter<"Usuario"> | string
     senha?: StringFilter<"Usuario"> | string
-    url_imagem?: StringFilter<"Usuario"> | string
     criado_em?: DateTimeFilter<"Usuario"> | Date | string
   }, "id">
 
@@ -6481,7 +6465,6 @@ export namespace Prisma {
     email?: SortOrder
     nickname?: SortOrder
     senha?: SortOrder
-    url_imagem?: SortOrder
     criado_em?: SortOrder
     _count?: UsuarioCountOrderByAggregateInput
     _avg?: UsuarioAvgOrderByAggregateInput
@@ -6498,7 +6481,6 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"Usuario"> | string
     nickname?: StringWithAggregatesFilter<"Usuario"> | string
     senha?: StringWithAggregatesFilter<"Usuario"> | string
-    url_imagem?: StringWithAggregatesFilter<"Usuario"> | string
     criado_em?: DateTimeWithAggregatesFilter<"Usuario"> | Date | string
   }
 
@@ -6706,7 +6688,6 @@ export namespace Prisma {
     email: string
     nickname: string
     senha: string
-    url_imagem: string
     criado_em?: Date | string
   }
 
@@ -6715,7 +6696,6 @@ export namespace Prisma {
     email: string
     nickname: string
     senha: string
-    url_imagem: string
     criado_em?: Date | string
   }
 
@@ -6723,7 +6703,6 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     nickname?: StringFieldUpdateOperationsInput | string
     senha?: StringFieldUpdateOperationsInput | string
-    url_imagem?: StringFieldUpdateOperationsInput | string
     criado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -6732,7 +6711,6 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     nickname?: StringFieldUpdateOperationsInput | string
     senha?: StringFieldUpdateOperationsInput | string
-    url_imagem?: StringFieldUpdateOperationsInput | string
     criado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -6741,7 +6719,6 @@ export namespace Prisma {
     email: string
     nickname: string
     senha: string
-    url_imagem: string
     criado_em?: Date | string
   }
 
@@ -6749,7 +6726,6 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     nickname?: StringFieldUpdateOperationsInput | string
     senha?: StringFieldUpdateOperationsInput | string
-    url_imagem?: StringFieldUpdateOperationsInput | string
     criado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -6758,7 +6734,6 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     nickname?: StringFieldUpdateOperationsInput | string
     senha?: StringFieldUpdateOperationsInput | string
-    url_imagem?: StringFieldUpdateOperationsInput | string
     criado_em?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -7066,7 +7041,6 @@ export namespace Prisma {
     email?: SortOrder
     nickname?: SortOrder
     senha?: SortOrder
-    url_imagem?: SortOrder
     criado_em?: SortOrder
   }
 
@@ -7079,7 +7053,6 @@ export namespace Prisma {
     email?: SortOrder
     nickname?: SortOrder
     senha?: SortOrder
-    url_imagem?: SortOrder
     criado_em?: SortOrder
   }
 
@@ -7088,7 +7061,6 @@ export namespace Prisma {
     email?: SortOrder
     nickname?: SortOrder
     senha?: SortOrder
-    url_imagem?: SortOrder
     criado_em?: SortOrder
   }
 

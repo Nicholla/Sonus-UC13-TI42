@@ -84,12 +84,16 @@ app.get("/usuario/:id", async (req, res) => {
 
 
 app.post("/usuario", async (req, res) => {
-    if ((req.body.nome === undefined) || (req.body.preco === undefined)){
+
+    console.log(req.body);
+
+    if ((req.body.email === undefined) || (req.body.senha === undefined) || (req.body.nickname === undefined) ){
         res.status(400).send("Campos obrigatórios faltantes");
     }else{
         const novoUsuario = await prisma.usuario.create({data: {
-            nome:req.body.nome,
-            preco: req.body.preco
+            email:req.body.email,
+            senha: req.body.senha,
+            nickname: req.body.nickname
         }});
         res.status(201).location(`/usuario/${novoUsuario.id}`).send();
     }

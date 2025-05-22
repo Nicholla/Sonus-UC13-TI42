@@ -154,7 +154,6 @@ exports.Prisma.UsuarioScalarFieldEnum = {
   email: 'email',
   nickname: 'nickname',
   senha: 'senha',
-  url_imagem: 'url_imagem',
   criado_em: 'criado_em'
 };
 
@@ -186,8 +185,7 @@ exports.Prisma.MusicaOrderByRelevanceFieldEnum = {
 exports.Prisma.UsuarioOrderByRelevanceFieldEnum = {
   email: 'email',
   nickname: 'nickname',
-  senha: 'senha',
-  url_imagem: 'url_imagem'
+  senha: 'senha'
 };
 
 
