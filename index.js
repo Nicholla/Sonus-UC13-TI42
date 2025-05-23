@@ -14,12 +14,6 @@ app.get('/', (req, res) => {
   res.send("Rélô!");
 });
 
-/*const cr_nota = require('./routes/nota')
-app.use('/nota', cr_nota)*/
-
-/*const cr_user = require('./user')
-app.use('/user', cr_user)*/
-
 app.get("/album", async (req, res) => {
     const album = await prisma.album.findMany();
     res.json(album);
