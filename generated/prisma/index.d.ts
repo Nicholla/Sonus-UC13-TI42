@@ -1225,12 +1225,10 @@ export namespace Prisma {
 
   export type ArtistaCountOutputType = {
     albuns: number
-    musicas: number
   }
 
   export type ArtistaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     albuns?: boolean | ArtistaCountOutputTypeCountAlbunsArgs
-    musicas?: boolean | ArtistaCountOutputTypeCountMusicasArgs
   }
 
   // Custom InputTypes
@@ -1249,13 +1247,6 @@ export namespace Prisma {
    */
   export type ArtistaCountOutputTypeCountAlbunsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AlbumWhereInput
-  }
-
-  /**
-   * ArtistaCountOutputType without action
-   */
-  export type ArtistaCountOutputTypeCountMusicasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MusicaWhereInput
   }
 
 
@@ -2443,7 +2434,6 @@ export namespace Prisma {
     nome?: boolean
     url_imagem?: boolean
     albuns?: boolean | Artista$albunsArgs<ExtArgs>
-    musicas?: boolean | Artista$musicasArgs<ExtArgs>
     _count?: boolean | ArtistaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["artista"]>
 
@@ -2458,7 +2448,6 @@ export namespace Prisma {
   export type ArtistaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "url_imagem", ExtArgs["result"]["artista"]>
   export type ArtistaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     albuns?: boolean | Artista$albunsArgs<ExtArgs>
-    musicas?: boolean | Artista$musicasArgs<ExtArgs>
     _count?: boolean | ArtistaCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -2466,7 +2455,6 @@ export namespace Prisma {
     name: "Artista"
     objects: {
       albuns: Prisma.$AlbumPayload<ExtArgs>[]
-      musicas: Prisma.$MusicaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2813,7 +2801,6 @@ export namespace Prisma {
   export interface Prisma__ArtistaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     albuns<T extends Artista$albunsArgs<ExtArgs> = {}>(args?: Subset<T, Artista$albunsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AlbumPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    musicas<T extends Artista$musicasArgs<ExtArgs> = {}>(args?: Subset<T, Artista$musicasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MusicaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3210,30 +3197,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: AlbumScalarFieldEnum | AlbumScalarFieldEnum[]
-  }
-
-  /**
-   * Artista.musicas
-   */
-  export type Artista$musicasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Musica
-     */
-    select?: MusicaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Musica
-     */
-    omit?: MusicaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MusicaInclude<ExtArgs> | null
-    where?: MusicaWhereInput
-    orderBy?: MusicaOrderByWithRelationInput | MusicaOrderByWithRelationInput[]
-    cursor?: MusicaWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: MusicaScalarFieldEnum | MusicaScalarFieldEnum[]
   }
 
   /**
@@ -4168,40 +4131,35 @@ export namespace Prisma {
   export type MusicaAvgAggregateOutputType = {
     id: number | null
     id_album: number | null
-    id_artista: number | null
   }
 
   export type MusicaSumAggregateOutputType = {
     id: number | null
     id_album: number | null
-    id_artista: number | null
   }
 
   export type MusicaMinAggregateOutputType = {
     id: number | null
     nome: string | null
-    img: string | null
     tempo: Date | null
+    url_imagem: string | null
     id_album: number | null
-    id_artista: number | null
   }
 
   export type MusicaMaxAggregateOutputType = {
     id: number | null
     nome: string | null
-    img: string | null
     tempo: Date | null
+    url_imagem: string | null
     id_album: number | null
-    id_artista: number | null
   }
 
   export type MusicaCountAggregateOutputType = {
     id: number
     nome: number
-    img: number
     tempo: number
+    url_imagem: number
     id_album: number
-    id_artista: number
     _all: number
   }
 
@@ -4209,40 +4167,35 @@ export namespace Prisma {
   export type MusicaAvgAggregateInputType = {
     id?: true
     id_album?: true
-    id_artista?: true
   }
 
   export type MusicaSumAggregateInputType = {
     id?: true
     id_album?: true
-    id_artista?: true
   }
 
   export type MusicaMinAggregateInputType = {
     id?: true
     nome?: true
-    img?: true
     tempo?: true
+    url_imagem?: true
     id_album?: true
-    id_artista?: true
   }
 
   export type MusicaMaxAggregateInputType = {
     id?: true
     nome?: true
-    img?: true
     tempo?: true
+    url_imagem?: true
     id_album?: true
-    id_artista?: true
   }
 
   export type MusicaCountAggregateInputType = {
     id?: true
     nome?: true
-    img?: true
     tempo?: true
+    url_imagem?: true
     id_album?: true
-    id_artista?: true
     _all?: true
   }
 
@@ -4335,10 +4288,9 @@ export namespace Prisma {
   export type MusicaGroupByOutputType = {
     id: number
     nome: string
-    img: string
     tempo: Date
+    url_imagem: string
     id_album: number
-    id_artista: number
     _count: MusicaCountAggregateOutputType | null
     _avg: MusicaAvgAggregateOutputType | null
     _sum: MusicaSumAggregateOutputType | null
@@ -4363,12 +4315,10 @@ export namespace Prisma {
   export type MusicaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nome?: boolean
-    img?: boolean
     tempo?: boolean
+    url_imagem?: boolean
     id_album?: boolean
-    id_artista?: boolean
     album?: boolean | AlbumDefaultArgs<ExtArgs>
-    artista?: boolean | ArtistaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["musica"]>
 
 
@@ -4376,31 +4326,27 @@ export namespace Prisma {
   export type MusicaSelectScalar = {
     id?: boolean
     nome?: boolean
-    img?: boolean
     tempo?: boolean
+    url_imagem?: boolean
     id_album?: boolean
-    id_artista?: boolean
   }
 
-  export type MusicaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "img" | "tempo" | "id_album" | "id_artista", ExtArgs["result"]["musica"]>
+  export type MusicaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "tempo" | "url_imagem" | "id_album", ExtArgs["result"]["musica"]>
   export type MusicaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     album?: boolean | AlbumDefaultArgs<ExtArgs>
-    artista?: boolean | ArtistaDefaultArgs<ExtArgs>
   }
 
   export type $MusicaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Musica"
     objects: {
       album: Prisma.$AlbumPayload<ExtArgs>
-      artista: Prisma.$ArtistaPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       nome: string
-      img: string
       tempo: Date
+      url_imagem: string
       id_album: number
-      id_artista: number
     }, ExtArgs["result"]["musica"]>
     composites: {}
   }
@@ -4742,7 +4688,6 @@ export namespace Prisma {
   export interface Prisma__MusicaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     album<T extends AlbumDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlbumDefaultArgs<ExtArgs>>): Prisma__AlbumClient<$Result.GetResult<Prisma.$AlbumPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    artista<T extends ArtistaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ArtistaDefaultArgs<ExtArgs>>): Prisma__ArtistaClient<$Result.GetResult<Prisma.$ArtistaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4774,10 +4719,9 @@ export namespace Prisma {
   interface MusicaFieldRefs {
     readonly id: FieldRef<"Musica", 'Int'>
     readonly nome: FieldRef<"Musica", 'String'>
-    readonly img: FieldRef<"Musica", 'String'>
     readonly tempo: FieldRef<"Musica", 'DateTime'>
+    readonly url_imagem: FieldRef<"Musica", 'String'>
     readonly id_album: FieldRef<"Musica", 'Int'>
-    readonly id_artista: FieldRef<"Musica", 'Int'>
   }
     
 
@@ -6101,10 +6045,9 @@ export namespace Prisma {
   export const MusicaScalarFieldEnum: {
     id: 'id',
     nome: 'nome',
-    img: 'img',
     tempo: 'tempo',
-    id_album: 'id_album',
-    id_artista: 'id_artista'
+    url_imagem: 'url_imagem',
+    id_album: 'id_album'
   };
 
   export type MusicaScalarFieldEnum = (typeof MusicaScalarFieldEnum)[keyof typeof MusicaScalarFieldEnum]
@@ -6155,7 +6098,7 @@ export namespace Prisma {
 
   export const MusicaOrderByRelevanceFieldEnum: {
     nome: 'nome',
-    img: 'img'
+    url_imagem: 'url_imagem'
   };
 
   export type MusicaOrderByRelevanceFieldEnum = (typeof MusicaOrderByRelevanceFieldEnum)[keyof typeof MusicaOrderByRelevanceFieldEnum]
@@ -6275,7 +6218,6 @@ export namespace Prisma {
     nome?: StringFilter<"Artista"> | string
     url_imagem?: StringFilter<"Artista"> | string
     albuns?: AlbumListRelationFilter
-    musicas?: MusicaListRelationFilter
   }
 
   export type ArtistaOrderByWithRelationInput = {
@@ -6283,7 +6225,6 @@ export namespace Prisma {
     nome?: SortOrder
     url_imagem?: SortOrder
     albuns?: AlbumOrderByRelationAggregateInput
-    musicas?: MusicaOrderByRelationAggregateInput
     _relevance?: ArtistaOrderByRelevanceInput
   }
 
@@ -6295,7 +6236,6 @@ export namespace Prisma {
     nome?: StringFilter<"Artista"> | string
     url_imagem?: StringFilter<"Artista"> | string
     albuns?: AlbumListRelationFilter
-    musicas?: MusicaListRelationFilter
   }, "id">
 
   export type ArtistaOrderByWithAggregationInput = {
@@ -6369,23 +6309,19 @@ export namespace Prisma {
     NOT?: MusicaWhereInput | MusicaWhereInput[]
     id?: IntFilter<"Musica"> | number
     nome?: StringFilter<"Musica"> | string
-    img?: StringFilter<"Musica"> | string
     tempo?: DateTimeFilter<"Musica"> | Date | string
+    url_imagem?: StringFilter<"Musica"> | string
     id_album?: IntFilter<"Musica"> | number
-    id_artista?: IntFilter<"Musica"> | number
     album?: XOR<AlbumScalarRelationFilter, AlbumWhereInput>
-    artista?: XOR<ArtistaScalarRelationFilter, ArtistaWhereInput>
   }
 
   export type MusicaOrderByWithRelationInput = {
     id?: SortOrder
     nome?: SortOrder
-    img?: SortOrder
     tempo?: SortOrder
+    url_imagem?: SortOrder
     id_album?: SortOrder
-    id_artista?: SortOrder
     album?: AlbumOrderByWithRelationInput
-    artista?: ArtistaOrderByWithRelationInput
     _relevance?: MusicaOrderByRelevanceInput
   }
 
@@ -6395,21 +6331,18 @@ export namespace Prisma {
     OR?: MusicaWhereInput[]
     NOT?: MusicaWhereInput | MusicaWhereInput[]
     nome?: StringFilter<"Musica"> | string
-    img?: StringFilter<"Musica"> | string
     tempo?: DateTimeFilter<"Musica"> | Date | string
+    url_imagem?: StringFilter<"Musica"> | string
     id_album?: IntFilter<"Musica"> | number
-    id_artista?: IntFilter<"Musica"> | number
     album?: XOR<AlbumScalarRelationFilter, AlbumWhereInput>
-    artista?: XOR<ArtistaScalarRelationFilter, ArtistaWhereInput>
   }, "id">
 
   export type MusicaOrderByWithAggregationInput = {
     id?: SortOrder
     nome?: SortOrder
-    img?: SortOrder
     tempo?: SortOrder
+    url_imagem?: SortOrder
     id_album?: SortOrder
-    id_artista?: SortOrder
     _count?: MusicaCountOrderByAggregateInput
     _avg?: MusicaAvgOrderByAggregateInput
     _max?: MusicaMaxOrderByAggregateInput
@@ -6423,10 +6356,9 @@ export namespace Prisma {
     NOT?: MusicaScalarWhereWithAggregatesInput | MusicaScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Musica"> | number
     nome?: StringWithAggregatesFilter<"Musica"> | string
-    img?: StringWithAggregatesFilter<"Musica"> | string
     tempo?: DateTimeWithAggregatesFilter<"Musica"> | Date | string
+    url_imagem?: StringWithAggregatesFilter<"Musica"> | string
     id_album?: IntWithAggregatesFilter<"Musica"> | number
-    id_artista?: IntWithAggregatesFilter<"Musica"> | number
   }
 
   export type UsuarioWhereInput = {
@@ -6544,7 +6476,6 @@ export namespace Prisma {
     nome: string
     url_imagem: string
     albuns?: AlbumCreateNestedManyWithoutArtistaInput
-    musicas?: MusicaCreateNestedManyWithoutArtistaInput
   }
 
   export type ArtistaUncheckedCreateInput = {
@@ -6552,14 +6483,12 @@ export namespace Prisma {
     nome: string
     url_imagem: string
     albuns?: AlbumUncheckedCreateNestedManyWithoutArtistaInput
-    musicas?: MusicaUncheckedCreateNestedManyWithoutArtistaInput
   }
 
   export type ArtistaUpdateInput = {
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
     albuns?: AlbumUpdateManyWithoutArtistaNestedInput
-    musicas?: MusicaUpdateManyWithoutArtistaNestedInput
   }
 
   export type ArtistaUncheckedUpdateInput = {
@@ -6567,7 +6496,6 @@ export namespace Prisma {
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
     albuns?: AlbumUncheckedUpdateManyWithoutArtistaNestedInput
-    musicas?: MusicaUncheckedUpdateManyWithoutArtistaNestedInput
   }
 
   export type ArtistaCreateManyInput = {
@@ -6628,60 +6556,54 @@ export namespace Prisma {
 
   export type MusicaCreateInput = {
     nome: string
-    img: string
     tempo: Date | string
+    url_imagem: string
     album: AlbumCreateNestedOneWithoutMusicasInput
-    artista: ArtistaCreateNestedOneWithoutMusicasInput
   }
 
   export type MusicaUncheckedCreateInput = {
     id?: number
     nome: string
-    img: string
     tempo: Date | string
+    url_imagem: string
     id_album: number
-    id_artista: number
   }
 
   export type MusicaUpdateInput = {
     nome?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
     tempo?: DateTimeFieldUpdateOperationsInput | Date | string
+    url_imagem?: StringFieldUpdateOperationsInput | string
     album?: AlbumUpdateOneRequiredWithoutMusicasNestedInput
-    artista?: ArtistaUpdateOneRequiredWithoutMusicasNestedInput
   }
 
   export type MusicaUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
     tempo?: DateTimeFieldUpdateOperationsInput | Date | string
+    url_imagem?: StringFieldUpdateOperationsInput | string
     id_album?: IntFieldUpdateOperationsInput | number
-    id_artista?: IntFieldUpdateOperationsInput | number
   }
 
   export type MusicaCreateManyInput = {
     id?: number
     nome: string
-    img: string
     tempo: Date | string
+    url_imagem: string
     id_album: number
-    id_artista: number
   }
 
   export type MusicaUpdateManyMutationInput = {
     nome?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
     tempo?: DateTimeFieldUpdateOperationsInput | Date | string
+    url_imagem?: StringFieldUpdateOperationsInput | string
   }
 
   export type MusicaUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
     tempo?: DateTimeFieldUpdateOperationsInput | Date | string
+    url_imagem?: StringFieldUpdateOperationsInput | string
     id_album?: IntFieldUpdateOperationsInput | number
-    id_artista?: IntFieldUpdateOperationsInput | number
   }
 
   export type UsuarioCreateInput = {
@@ -6980,40 +6902,35 @@ export namespace Prisma {
   export type MusicaCountOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
-    img?: SortOrder
     tempo?: SortOrder
+    url_imagem?: SortOrder
     id_album?: SortOrder
-    id_artista?: SortOrder
   }
 
   export type MusicaAvgOrderByAggregateInput = {
     id?: SortOrder
     id_album?: SortOrder
-    id_artista?: SortOrder
   }
 
   export type MusicaMaxOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
-    img?: SortOrder
     tempo?: SortOrder
+    url_imagem?: SortOrder
     id_album?: SortOrder
-    id_artista?: SortOrder
   }
 
   export type MusicaMinOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
-    img?: SortOrder
     tempo?: SortOrder
+    url_imagem?: SortOrder
     id_album?: SortOrder
-    id_artista?: SortOrder
   }
 
   export type MusicaSumOrderByAggregateInput = {
     id?: SortOrder
     id_album?: SortOrder
-    id_artista?: SortOrder
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -7143,25 +7060,11 @@ export namespace Prisma {
     connect?: AlbumWhereUniqueInput | AlbumWhereUniqueInput[]
   }
 
-  export type MusicaCreateNestedManyWithoutArtistaInput = {
-    create?: XOR<MusicaCreateWithoutArtistaInput, MusicaUncheckedCreateWithoutArtistaInput> | MusicaCreateWithoutArtistaInput[] | MusicaUncheckedCreateWithoutArtistaInput[]
-    connectOrCreate?: MusicaCreateOrConnectWithoutArtistaInput | MusicaCreateOrConnectWithoutArtistaInput[]
-    createMany?: MusicaCreateManyArtistaInputEnvelope
-    connect?: MusicaWhereUniqueInput | MusicaWhereUniqueInput[]
-  }
-
   export type AlbumUncheckedCreateNestedManyWithoutArtistaInput = {
     create?: XOR<AlbumCreateWithoutArtistaInput, AlbumUncheckedCreateWithoutArtistaInput> | AlbumCreateWithoutArtistaInput[] | AlbumUncheckedCreateWithoutArtistaInput[]
     connectOrCreate?: AlbumCreateOrConnectWithoutArtistaInput | AlbumCreateOrConnectWithoutArtistaInput[]
     createMany?: AlbumCreateManyArtistaInputEnvelope
     connect?: AlbumWhereUniqueInput | AlbumWhereUniqueInput[]
-  }
-
-  export type MusicaUncheckedCreateNestedManyWithoutArtistaInput = {
-    create?: XOR<MusicaCreateWithoutArtistaInput, MusicaUncheckedCreateWithoutArtistaInput> | MusicaCreateWithoutArtistaInput[] | MusicaUncheckedCreateWithoutArtistaInput[]
-    connectOrCreate?: MusicaCreateOrConnectWithoutArtistaInput | MusicaCreateOrConnectWithoutArtistaInput[]
-    createMany?: MusicaCreateManyArtistaInputEnvelope
-    connect?: MusicaWhereUniqueInput | MusicaWhereUniqueInput[]
   }
 
   export type AlbumUpdateManyWithoutArtistaNestedInput = {
@@ -7178,20 +7081,6 @@ export namespace Prisma {
     deleteMany?: AlbumScalarWhereInput | AlbumScalarWhereInput[]
   }
 
-  export type MusicaUpdateManyWithoutArtistaNestedInput = {
-    create?: XOR<MusicaCreateWithoutArtistaInput, MusicaUncheckedCreateWithoutArtistaInput> | MusicaCreateWithoutArtistaInput[] | MusicaUncheckedCreateWithoutArtistaInput[]
-    connectOrCreate?: MusicaCreateOrConnectWithoutArtistaInput | MusicaCreateOrConnectWithoutArtistaInput[]
-    upsert?: MusicaUpsertWithWhereUniqueWithoutArtistaInput | MusicaUpsertWithWhereUniqueWithoutArtistaInput[]
-    createMany?: MusicaCreateManyArtistaInputEnvelope
-    set?: MusicaWhereUniqueInput | MusicaWhereUniqueInput[]
-    disconnect?: MusicaWhereUniqueInput | MusicaWhereUniqueInput[]
-    delete?: MusicaWhereUniqueInput | MusicaWhereUniqueInput[]
-    connect?: MusicaWhereUniqueInput | MusicaWhereUniqueInput[]
-    update?: MusicaUpdateWithWhereUniqueWithoutArtistaInput | MusicaUpdateWithWhereUniqueWithoutArtistaInput[]
-    updateMany?: MusicaUpdateManyWithWhereWithoutArtistaInput | MusicaUpdateManyWithWhereWithoutArtistaInput[]
-    deleteMany?: MusicaScalarWhereInput | MusicaScalarWhereInput[]
-  }
-
   export type AlbumUncheckedUpdateManyWithoutArtistaNestedInput = {
     create?: XOR<AlbumCreateWithoutArtistaInput, AlbumUncheckedCreateWithoutArtistaInput> | AlbumCreateWithoutArtistaInput[] | AlbumUncheckedCreateWithoutArtistaInput[]
     connectOrCreate?: AlbumCreateOrConnectWithoutArtistaInput | AlbumCreateOrConnectWithoutArtistaInput[]
@@ -7204,20 +7093,6 @@ export namespace Prisma {
     update?: AlbumUpdateWithWhereUniqueWithoutArtistaInput | AlbumUpdateWithWhereUniqueWithoutArtistaInput[]
     updateMany?: AlbumUpdateManyWithWhereWithoutArtistaInput | AlbumUpdateManyWithWhereWithoutArtistaInput[]
     deleteMany?: AlbumScalarWhereInput | AlbumScalarWhereInput[]
-  }
-
-  export type MusicaUncheckedUpdateManyWithoutArtistaNestedInput = {
-    create?: XOR<MusicaCreateWithoutArtistaInput, MusicaUncheckedCreateWithoutArtistaInput> | MusicaCreateWithoutArtistaInput[] | MusicaUncheckedCreateWithoutArtistaInput[]
-    connectOrCreate?: MusicaCreateOrConnectWithoutArtistaInput | MusicaCreateOrConnectWithoutArtistaInput[]
-    upsert?: MusicaUpsertWithWhereUniqueWithoutArtistaInput | MusicaUpsertWithWhereUniqueWithoutArtistaInput[]
-    createMany?: MusicaCreateManyArtistaInputEnvelope
-    set?: MusicaWhereUniqueInput | MusicaWhereUniqueInput[]
-    disconnect?: MusicaWhereUniqueInput | MusicaWhereUniqueInput[]
-    delete?: MusicaWhereUniqueInput | MusicaWhereUniqueInput[]
-    connect?: MusicaWhereUniqueInput | MusicaWhereUniqueInput[]
-    update?: MusicaUpdateWithWhereUniqueWithoutArtistaInput | MusicaUpdateWithWhereUniqueWithoutArtistaInput[]
-    updateMany?: MusicaUpdateManyWithWhereWithoutArtistaInput | MusicaUpdateManyWithWhereWithoutArtistaInput[]
-    deleteMany?: MusicaScalarWhereInput | MusicaScalarWhereInput[]
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -7234,12 +7109,6 @@ export namespace Prisma {
     connect?: AlbumWhereUniqueInput
   }
 
-  export type ArtistaCreateNestedOneWithoutMusicasInput = {
-    create?: XOR<ArtistaCreateWithoutMusicasInput, ArtistaUncheckedCreateWithoutMusicasInput>
-    connectOrCreate?: ArtistaCreateOrConnectWithoutMusicasInput
-    connect?: ArtistaWhereUniqueInput
-  }
-
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
@@ -7250,14 +7119,6 @@ export namespace Prisma {
     upsert?: AlbumUpsertWithoutMusicasInput
     connect?: AlbumWhereUniqueInput
     update?: XOR<XOR<AlbumUpdateToOneWithWhereWithoutMusicasInput, AlbumUpdateWithoutMusicasInput>, AlbumUncheckedUpdateWithoutMusicasInput>
-  }
-
-  export type ArtistaUpdateOneRequiredWithoutMusicasNestedInput = {
-    create?: XOR<ArtistaCreateWithoutMusicasInput, ArtistaUncheckedCreateWithoutMusicasInput>
-    connectOrCreate?: ArtistaCreateOrConnectWithoutMusicasInput
-    upsert?: ArtistaUpsertWithoutMusicasInput
-    connect?: ArtistaWhereUniqueInput
-    update?: XOR<XOR<ArtistaUpdateToOneWithWhereWithoutMusicasInput, ArtistaUpdateWithoutMusicasInput>, ArtistaUncheckedUpdateWithoutMusicasInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -7374,17 +7235,15 @@ export namespace Prisma {
 
   export type MusicaCreateWithoutAlbumInput = {
     nome: string
-    img: string
     tempo: Date | string
-    artista: ArtistaCreateNestedOneWithoutMusicasInput
+    url_imagem: string
   }
 
   export type MusicaUncheckedCreateWithoutAlbumInput = {
     id?: number
     nome: string
-    img: string
     tempo: Date | string
-    id_artista: number
+    url_imagem: string
   }
 
   export type MusicaCreateOrConnectWithoutAlbumInput = {
@@ -7400,14 +7259,12 @@ export namespace Prisma {
   export type ArtistaCreateWithoutAlbunsInput = {
     nome: string
     url_imagem: string
-    musicas?: MusicaCreateNestedManyWithoutArtistaInput
   }
 
   export type ArtistaUncheckedCreateWithoutAlbunsInput = {
     id?: number
     nome: string
     url_imagem: string
-    musicas?: MusicaUncheckedCreateNestedManyWithoutArtistaInput
   }
 
   export type ArtistaCreateOrConnectWithoutAlbunsInput = {
@@ -7437,10 +7294,9 @@ export namespace Prisma {
     NOT?: MusicaScalarWhereInput | MusicaScalarWhereInput[]
     id?: IntFilter<"Musica"> | number
     nome?: StringFilter<"Musica"> | string
-    img?: StringFilter<"Musica"> | string
     tempo?: DateTimeFilter<"Musica"> | Date | string
+    url_imagem?: StringFilter<"Musica"> | string
     id_album?: IntFilter<"Musica"> | number
-    id_artista?: IntFilter<"Musica"> | number
   }
 
   export type ArtistaUpsertWithoutAlbunsInput = {
@@ -7457,14 +7313,12 @@ export namespace Prisma {
   export type ArtistaUpdateWithoutAlbunsInput = {
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
-    musicas?: MusicaUpdateManyWithoutArtistaNestedInput
   }
 
   export type ArtistaUncheckedUpdateWithoutAlbunsInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
-    musicas?: MusicaUncheckedUpdateManyWithoutArtistaNestedInput
   }
 
   export type AlbumCreateWithoutArtistaInput = {
@@ -7489,31 +7343,6 @@ export namespace Prisma {
 
   export type AlbumCreateManyArtistaInputEnvelope = {
     data: AlbumCreateManyArtistaInput | AlbumCreateManyArtistaInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type MusicaCreateWithoutArtistaInput = {
-    nome: string
-    img: string
-    tempo: Date | string
-    album: AlbumCreateNestedOneWithoutMusicasInput
-  }
-
-  export type MusicaUncheckedCreateWithoutArtistaInput = {
-    id?: number
-    nome: string
-    img: string
-    tempo: Date | string
-    id_album: number
-  }
-
-  export type MusicaCreateOrConnectWithoutArtistaInput = {
-    where: MusicaWhereUniqueInput
-    create: XOR<MusicaCreateWithoutArtistaInput, MusicaUncheckedCreateWithoutArtistaInput>
-  }
-
-  export type MusicaCreateManyArtistaInputEnvelope = {
-    data: MusicaCreateManyArtistaInput | MusicaCreateManyArtistaInput[]
     skipDuplicates?: boolean
   }
 
@@ -7544,22 +7373,6 @@ export namespace Prisma {
     id_artista?: IntFilter<"Album"> | number
   }
 
-  export type MusicaUpsertWithWhereUniqueWithoutArtistaInput = {
-    where: MusicaWhereUniqueInput
-    update: XOR<MusicaUpdateWithoutArtistaInput, MusicaUncheckedUpdateWithoutArtistaInput>
-    create: XOR<MusicaCreateWithoutArtistaInput, MusicaUncheckedCreateWithoutArtistaInput>
-  }
-
-  export type MusicaUpdateWithWhereUniqueWithoutArtistaInput = {
-    where: MusicaWhereUniqueInput
-    data: XOR<MusicaUpdateWithoutArtistaInput, MusicaUncheckedUpdateWithoutArtistaInput>
-  }
-
-  export type MusicaUpdateManyWithWhereWithoutArtistaInput = {
-    where: MusicaScalarWhereInput
-    data: XOR<MusicaUpdateManyMutationInput, MusicaUncheckedUpdateManyWithoutArtistaInput>
-  }
-
   export type AlbumCreateWithoutMusicasInput = {
     nome: string
     url_imagem: string
@@ -7578,24 +7391,6 @@ export namespace Prisma {
   export type AlbumCreateOrConnectWithoutMusicasInput = {
     where: AlbumWhereUniqueInput
     create: XOR<AlbumCreateWithoutMusicasInput, AlbumUncheckedCreateWithoutMusicasInput>
-  }
-
-  export type ArtistaCreateWithoutMusicasInput = {
-    nome: string
-    url_imagem: string
-    albuns?: AlbumCreateNestedManyWithoutArtistaInput
-  }
-
-  export type ArtistaUncheckedCreateWithoutMusicasInput = {
-    id?: number
-    nome: string
-    url_imagem: string
-    albuns?: AlbumUncheckedCreateNestedManyWithoutArtistaInput
-  }
-
-  export type ArtistaCreateOrConnectWithoutMusicasInput = {
-    where: ArtistaWhereUniqueInput
-    create: XOR<ArtistaCreateWithoutMusicasInput, ArtistaUncheckedCreateWithoutMusicasInput>
   }
 
   export type AlbumUpsertWithoutMusicasInput = {
@@ -7624,59 +7419,31 @@ export namespace Prisma {
     id_artista?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ArtistaUpsertWithoutMusicasInput = {
-    update: XOR<ArtistaUpdateWithoutMusicasInput, ArtistaUncheckedUpdateWithoutMusicasInput>
-    create: XOR<ArtistaCreateWithoutMusicasInput, ArtistaUncheckedCreateWithoutMusicasInput>
-    where?: ArtistaWhereInput
-  }
-
-  export type ArtistaUpdateToOneWithWhereWithoutMusicasInput = {
-    where?: ArtistaWhereInput
-    data: XOR<ArtistaUpdateWithoutMusicasInput, ArtistaUncheckedUpdateWithoutMusicasInput>
-  }
-
-  export type ArtistaUpdateWithoutMusicasInput = {
-    nome?: StringFieldUpdateOperationsInput | string
-    url_imagem?: StringFieldUpdateOperationsInput | string
-    albuns?: AlbumUpdateManyWithoutArtistaNestedInput
-  }
-
-  export type ArtistaUncheckedUpdateWithoutMusicasInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    nome?: StringFieldUpdateOperationsInput | string
-    url_imagem?: StringFieldUpdateOperationsInput | string
-    albuns?: AlbumUncheckedUpdateManyWithoutArtistaNestedInput
-  }
-
   export type MusicaCreateManyAlbumInput = {
     id?: number
     nome: string
-    img: string
     tempo: Date | string
-    id_artista: number
+    url_imagem: string
   }
 
   export type MusicaUpdateWithoutAlbumInput = {
     nome?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
     tempo?: DateTimeFieldUpdateOperationsInput | Date | string
-    artista?: ArtistaUpdateOneRequiredWithoutMusicasNestedInput
+    url_imagem?: StringFieldUpdateOperationsInput | string
   }
 
   export type MusicaUncheckedUpdateWithoutAlbumInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
     tempo?: DateTimeFieldUpdateOperationsInput | Date | string
-    id_artista?: IntFieldUpdateOperationsInput | number
+    url_imagem?: StringFieldUpdateOperationsInput | string
   }
 
   export type MusicaUncheckedUpdateManyWithoutAlbumInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
     tempo?: DateTimeFieldUpdateOperationsInput | Date | string
-    id_artista?: IntFieldUpdateOperationsInput | number
+    url_imagem?: StringFieldUpdateOperationsInput | string
   }
 
   export type AlbumCreateManyArtistaInput = {
@@ -7684,14 +7451,6 @@ export namespace Prisma {
     nome: string
     url_imagem: string
     descricao: string
-  }
-
-  export type MusicaCreateManyArtistaInput = {
-    id?: number
-    nome: string
-    img: string
-    tempo: Date | string
-    id_album: number
   }
 
   export type AlbumUpdateWithoutArtistaInput = {
@@ -7714,29 +7473,6 @@ export namespace Prisma {
     nome?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type MusicaUpdateWithoutArtistaInput = {
-    nome?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
-    tempo?: DateTimeFieldUpdateOperationsInput | Date | string
-    album?: AlbumUpdateOneRequiredWithoutMusicasNestedInput
-  }
-
-  export type MusicaUncheckedUpdateWithoutArtistaInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    nome?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
-    tempo?: DateTimeFieldUpdateOperationsInput | Date | string
-    id_album?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type MusicaUncheckedUpdateManyWithoutArtistaInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    nome?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
-    tempo?: DateTimeFieldUpdateOperationsInput | Date | string
-    id_album?: IntFieldUpdateOperationsInput | number
   }
 
 

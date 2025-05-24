@@ -143,10 +143,9 @@ exports.Prisma.AvaliacaoScalarFieldEnum = {
 exports.Prisma.MusicaScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
-  img: 'img',
   tempo: 'tempo',
-  id_album: 'id_album',
-  id_artista: 'id_artista'
+  url_imagem: 'url_imagem',
+  id_album: 'id_album'
 };
 
 exports.Prisma.UsuarioScalarFieldEnum = {
@@ -179,7 +178,7 @@ exports.Prisma.AvaliacaoOrderByRelevanceFieldEnum = {
 
 exports.Prisma.MusicaOrderByRelevanceFieldEnum = {
   nome: 'nome',
-  img: 'img'
+  url_imagem: 'url_imagem'
 };
 
 exports.Prisma.UsuarioOrderByRelevanceFieldEnum = {
