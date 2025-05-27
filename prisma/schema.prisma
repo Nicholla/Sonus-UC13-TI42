@@ -47,7 +47,7 @@ model Avaliacao {
 model Musica {
   id    Int      @id @default(autoincrement())
   nome  String
-  tempo DateTime
+  tempo String
   url_imagem String
   album Album    @relation(fields: [id_album], references: [id])
 

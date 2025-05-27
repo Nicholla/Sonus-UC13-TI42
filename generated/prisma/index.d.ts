@@ -4141,7 +4141,7 @@ export namespace Prisma {
   export type MusicaMinAggregateOutputType = {
     id: number | null
     nome: string | null
-    tempo: Date | null
+    tempo: string | null
     url_imagem: string | null
     id_album: number | null
   }
@@ -4149,7 +4149,7 @@ export namespace Prisma {
   export type MusicaMaxAggregateOutputType = {
     id: number | null
     nome: string | null
-    tempo: Date | null
+    tempo: string | null
     url_imagem: string | null
     id_album: number | null
   }
@@ -4288,7 +4288,7 @@ export namespace Prisma {
   export type MusicaGroupByOutputType = {
     id: number
     nome: string
-    tempo: Date
+    tempo: string
     url_imagem: string
     id_album: number
     _count: MusicaCountAggregateOutputType | null
@@ -4344,7 +4344,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       nome: string
-      tempo: Date
+      tempo: string
       url_imagem: string
       id_album: number
     }, ExtArgs["result"]["musica"]>
@@ -4719,7 +4719,7 @@ export namespace Prisma {
   interface MusicaFieldRefs {
     readonly id: FieldRef<"Musica", 'Int'>
     readonly nome: FieldRef<"Musica", 'String'>
-    readonly tempo: FieldRef<"Musica", 'DateTime'>
+    readonly tempo: FieldRef<"Musica", 'String'>
     readonly url_imagem: FieldRef<"Musica", 'String'>
     readonly id_album: FieldRef<"Musica", 'Int'>
   }
@@ -6098,6 +6098,7 @@ export namespace Prisma {
 
   export const MusicaOrderByRelevanceFieldEnum: {
     nome: 'nome',
+    tempo: 'tempo',
     url_imagem: 'url_imagem'
   };
 
@@ -6309,7 +6310,7 @@ export namespace Prisma {
     NOT?: MusicaWhereInput | MusicaWhereInput[]
     id?: IntFilter<"Musica"> | number
     nome?: StringFilter<"Musica"> | string
-    tempo?: DateTimeFilter<"Musica"> | Date | string
+    tempo?: StringFilter<"Musica"> | string
     url_imagem?: StringFilter<"Musica"> | string
     id_album?: IntFilter<"Musica"> | number
     album?: XOR<AlbumScalarRelationFilter, AlbumWhereInput>
@@ -6331,7 +6332,7 @@ export namespace Prisma {
     OR?: MusicaWhereInput[]
     NOT?: MusicaWhereInput | MusicaWhereInput[]
     nome?: StringFilter<"Musica"> | string
-    tempo?: DateTimeFilter<"Musica"> | Date | string
+    tempo?: StringFilter<"Musica"> | string
     url_imagem?: StringFilter<"Musica"> | string
     id_album?: IntFilter<"Musica"> | number
     album?: XOR<AlbumScalarRelationFilter, AlbumWhereInput>
@@ -6356,7 +6357,7 @@ export namespace Prisma {
     NOT?: MusicaScalarWhereWithAggregatesInput | MusicaScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Musica"> | number
     nome?: StringWithAggregatesFilter<"Musica"> | string
-    tempo?: DateTimeWithAggregatesFilter<"Musica"> | Date | string
+    tempo?: StringWithAggregatesFilter<"Musica"> | string
     url_imagem?: StringWithAggregatesFilter<"Musica"> | string
     id_album?: IntWithAggregatesFilter<"Musica"> | number
   }
@@ -6556,7 +6557,7 @@ export namespace Prisma {
 
   export type MusicaCreateInput = {
     nome: string
-    tempo: Date | string
+    tempo: string
     url_imagem: string
     album: AlbumCreateNestedOneWithoutMusicasInput
   }
@@ -6564,14 +6565,14 @@ export namespace Prisma {
   export type MusicaUncheckedCreateInput = {
     id?: number
     nome: string
-    tempo: Date | string
+    tempo: string
     url_imagem: string
     id_album: number
   }
 
   export type MusicaUpdateInput = {
     nome?: StringFieldUpdateOperationsInput | string
-    tempo?: DateTimeFieldUpdateOperationsInput | Date | string
+    tempo?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
     album?: AlbumUpdateOneRequiredWithoutMusicasNestedInput
   }
@@ -6579,7 +6580,7 @@ export namespace Prisma {
   export type MusicaUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
-    tempo?: DateTimeFieldUpdateOperationsInput | Date | string
+    tempo?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
     id_album?: IntFieldUpdateOperationsInput | number
   }
@@ -6587,21 +6588,21 @@ export namespace Prisma {
   export type MusicaCreateManyInput = {
     id?: number
     nome: string
-    tempo: Date | string
+    tempo: string
     url_imagem: string
     id_album: number
   }
 
   export type MusicaUpdateManyMutationInput = {
     nome?: StringFieldUpdateOperationsInput | string
-    tempo?: DateTimeFieldUpdateOperationsInput | Date | string
+    tempo?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
   }
 
   export type MusicaUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
-    tempo?: DateTimeFieldUpdateOperationsInput | Date | string
+    tempo?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
     id_album?: IntFieldUpdateOperationsInput | number
   }
@@ -6877,17 +6878,6 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type AlbumScalarRelationFilter = {
     is?: AlbumWhereInput
     isNot?: AlbumWhereInput
@@ -6933,7 +6923,7 @@ export namespace Prisma {
     id_album?: SortOrder
   }
 
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+  export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
     notIn?: Date[] | string[]
@@ -6941,10 +6931,7 @@ export namespace Prisma {
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type UsuarioOrderByRelevanceInput = {
@@ -6983,6 +6970,20 @@ export namespace Prisma {
 
   export type UsuarioSumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type MusicaCreateNestedManyWithoutAlbumInput = {
@@ -7109,16 +7110,16 @@ export namespace Prisma {
     connect?: AlbumWhereUniqueInput
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
-  }
-
   export type AlbumUpdateOneRequiredWithoutMusicasNestedInput = {
     create?: XOR<AlbumCreateWithoutMusicasInput, AlbumUncheckedCreateWithoutMusicasInput>
     connectOrCreate?: AlbumCreateOrConnectWithoutMusicasInput
     upsert?: AlbumUpsertWithoutMusicasInput
     connect?: AlbumWhereUniqueInput
     update?: XOR<XOR<AlbumUpdateToOneWithWhereWithoutMusicasInput, AlbumUpdateWithoutMusicasInput>, AlbumUncheckedUpdateWithoutMusicasInput>
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -7235,14 +7236,14 @@ export namespace Prisma {
 
   export type MusicaCreateWithoutAlbumInput = {
     nome: string
-    tempo: Date | string
+    tempo: string
     url_imagem: string
   }
 
   export type MusicaUncheckedCreateWithoutAlbumInput = {
     id?: number
     nome: string
-    tempo: Date | string
+    tempo: string
     url_imagem: string
   }
 
@@ -7294,7 +7295,7 @@ export namespace Prisma {
     NOT?: MusicaScalarWhereInput | MusicaScalarWhereInput[]
     id?: IntFilter<"Musica"> | number
     nome?: StringFilter<"Musica"> | string
-    tempo?: DateTimeFilter<"Musica"> | Date | string
+    tempo?: StringFilter<"Musica"> | string
     url_imagem?: StringFilter<"Musica"> | string
     id_album?: IntFilter<"Musica"> | number
   }
@@ -7422,27 +7423,27 @@ export namespace Prisma {
   export type MusicaCreateManyAlbumInput = {
     id?: number
     nome: string
-    tempo: Date | string
+    tempo: string
     url_imagem: string
   }
 
   export type MusicaUpdateWithoutAlbumInput = {
     nome?: StringFieldUpdateOperationsInput | string
-    tempo?: DateTimeFieldUpdateOperationsInput | Date | string
+    tempo?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
   }
 
   export type MusicaUncheckedUpdateWithoutAlbumInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
-    tempo?: DateTimeFieldUpdateOperationsInput | Date | string
+    tempo?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
   }
 
   export type MusicaUncheckedUpdateManyWithoutAlbumInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
-    tempo?: DateTimeFieldUpdateOperationsInput | Date | string
+    tempo?: StringFieldUpdateOperationsInput | string
     url_imagem?: StringFieldUpdateOperationsInput | string
   }
 

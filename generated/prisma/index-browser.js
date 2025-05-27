@@ -178,6 +178,7 @@ exports.Prisma.AvaliacaoOrderByRelevanceFieldEnum = {
 
 exports.Prisma.MusicaOrderByRelevanceFieldEnum = {
   nome: 'nome',
+  tempo: 'tempo',
   url_imagem: 'url_imagem'
 };
 
