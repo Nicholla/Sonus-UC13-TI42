@@ -15,8 +15,17 @@ app.get('/', (req, res) => {
 });
 
 app.get("/album", async (req, res) => {
-    const album = await prisma.album.findMany();
-    res.json(album);
+    try {
+        const albuns = await prisma.album.findMany({
+            include: {
+                musicas: true,  // Inclui todas as músicas relacionadas ao álbum
+            },
+        });
+        res.json(albuns);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Erro ao buscar álbuns." });
+    }
 });
 
 app.get("/album/:id", async (req, res) => {
