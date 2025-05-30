@@ -31,6 +31,7 @@ model Artista {
   id         Int     @id @default(autoincrement())
   nome       String
   url_imagem String
+  descricao  String?
   albuns     Album[]
 
   @@map("artistas")

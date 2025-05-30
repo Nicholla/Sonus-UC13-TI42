@@ -131,7 +131,8 @@ exports.Prisma.AlbumScalarFieldEnum = {
 exports.Prisma.ArtistaScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
-  url_imagem: 'url_imagem'
+  url_imagem: 'url_imagem',
+  descricao: 'descricao'
 };
 
 exports.Prisma.AvaliacaoScalarFieldEnum = {
@@ -167,9 +168,15 @@ exports.Prisma.AlbumOrderByRelevanceFieldEnum = {
   descricao: 'descricao'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 exports.Prisma.ArtistaOrderByRelevanceFieldEnum = {
   nome: 'nome',
-  url_imagem: 'url_imagem'
+  url_imagem: 'url_imagem',
+  descricao: 'descricao'
 };
 
 exports.Prisma.AvaliacaoOrderByRelevanceFieldEnum = {
